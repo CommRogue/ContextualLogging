@@ -1,0 +1,25 @@
+plugins {
+    id 'org.springframework.boot' version '3.3.2'
+    id 'java'
+}
+
+group = 'com.commrogue'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:3.3.2'
+    implementation 'io.projectreactor:reactor-core:3.6.8'
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    implementation 'org.apache.commons:commons-lang3:3.15.0'
+    implementation 'io.micrometer:context-propagation:1.1.1'
+    implementation 'net.logstash.logback:logstash-logback-encoder:8.0'
+}
+
+test {
+    useJUnitPlatform()
+}
