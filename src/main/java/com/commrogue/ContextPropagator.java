@@ -2,6 +2,7 @@ package com.commrogue;
 
 import io.micrometer.context.ContextRegistry;
 import io.micrometer.context.ContextSnapshotFactory;
+import jakarta.annotation.PostConstruct;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -15,19 +16,21 @@ import java.util.Arrays;
 @ConditionalOnClass({ContextRegistry.class, ContextSnapshotFactory.class})
 @ConditionalOnProperty(value = "logging.propagate-context.fields")
 public class ContextPropagator {
-    public static void xx(String claim) {
-        MDC.remove(claim);
+    @Value("${logging.propagate-context.fields}") String[] fields;
+
+    @PostConstruct
+    public void init() {
+        propagate(fields);
     }
-    public ContextPropagator(@Value("${logging.propagate-context.fields}") String[] fields) {
+
+    public static void propagate(String... fields) {
         if (fields.length > 0) {
             Arrays.stream(fields).forEach(claim -> ContextRegistry.getInstance()
                     .registerThreadLocalAccessor(claim,
                             () -> MDC.get(claim),
                             value -> MDC.put(claim, value),
-                            () -> xx(claim)));
+                            () -> MDC.remove(claim)));
 
             Hooks.enableAutomaticContextPropagation();
-        }
-
     }
-}
+}}

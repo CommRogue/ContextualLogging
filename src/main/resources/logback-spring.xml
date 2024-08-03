@@ -1,14 +1,12 @@
 <configuration>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <includeContextName>true</includeContextName>
-            <includeStructuredArguments>true</includeStructuredArguments>
-            <includeMdc>false</includeMdc>
-            <includeCallerData>false</includeCallerData>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg [%X%kvp] %n</pattern>
         </encoder>
     </appender>
+    <!-- Define other appenders and loggers as needed -->
 
-    <root level="debug">
-        <appender-ref ref="CONSOLE" />
+    <root level="info">
+        <appender-ref ref="STDOUT" />
     </root>
 </configuration>

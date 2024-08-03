@@ -2,17 +2,16 @@ package com.commrogue;
 
 import lombok.experimental.ExtensionMethod;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.event.Level;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Hooks;
 import reactor.core.scheduler.Schedulers;
 import reactor.util.context.Context;
 
 import static net.logstash.logback.argument.StructuredArguments.kv;
-import static org.slf4j.event.Level.*;
+import static org.slf4j.event.Level.INFO;
+
 @Component
 @Slf4j
 @ExtensionMethod(PublisherExtensions.class)
