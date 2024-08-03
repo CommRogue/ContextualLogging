@@ -29,9 +29,9 @@ public class Example {
 ```
 
 ### Automatic Context Propagation
-This library includes an optional feature that allows automatic propagation of Reactor's Context to the MDC (Mapped Diagnostic Context). It lets you write log messages without using the above methods, and within any Reactor operator, and still have the Context appear in your log messages.\
-It uses Reactor's `Hooks.enableAutomaticContextPropagation()` internally.\
-However, using this feature is discouraged as it greatly impacts performance, due to the burden of having to write and remove from the MDC on every operator call. 
+This library includes an optional feature that allows automatic propagation of Reactor's Context to the MDC (Mapped Diagnostic Context). It lets you write log messages without using the above methods, and within any Reactor operator, and still have the Context appear in your log messages.
+It uses Reactor's `Hooks.enableAutomaticContextPropagation()` internally.\\
+Using this feature is discouraged as it greatly impacts performance, due to the burden of having to write and remove from the MDC on every operator call. 
 
 #### Example Usage
 You may enable this feature in your Spring project by specifying fields to be automatically propagated in `logging.propagate-context.fields`: 
