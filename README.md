@@ -5,7 +5,7 @@
 
 ## Overview
 
-Reactor Context Logger is a Java library designed to assist with logging Reactor Contexts. This library enhances logging capabilities within Reactor by appending the current Context as key-value pairs to log messages. It also includes an optional feature for automatic context propagation to the MDC (Mapped Diagnostic Context) on every operator call.
+Reactor Contextual Logging is a Java library designed to assist with logging Reactor Contexts. This library enhances logging capabilities within Reactor by appending the current Context as key-value pairs to log messages. It also includes an optional feature for automatic context propagation to the MDC (Mapped Diagnostic Context) on every operator call.
 
 ## Usage
 
