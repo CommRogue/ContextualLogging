@@ -12,7 +12,7 @@ Reactor Contextual Logging is a small Java library designed to assist with loggi
 This library includes methods such as `logOnNext()`, `logOnSubscribe()`, `logOnCancel()` and more that integrate with `Flux` and `Mono`.
 They allow you to pass a log message and arguments, and will append the current `Context` to your log statement. 
 
-To get started, use Lombok's `@ExtensionMethod` to integrate these methods into `Mono` and `Flux`. You may then use these functions in your Reactor pipeline. 
+To get started, use Lombok's `@ExtensionMethod` to integrate these methods into `Mono` and `Flux`. You may then use these methods in your Reactor pipeline. 
 
 #### Example Usage
 ```java
